@@ -1,7 +1,36 @@
-.timer {
-  display: flex;
-  flex-wrap: wrap;
+.container {
+  padding-top: 250px;
+  text-align: center;
 }
-body {
-  background-color: aqua;
+
+.timer {
+  padding-top: 30px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  gap: 15px;
+}
+
+.value {
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.field {
+  position: relative;
+}
+
+.label {
+  position: absolute;
+  padding: 10px;
+  top: 60;
+  left: 5;
+}
+
+.field:not(:first-child):before {
+  content: ':';
+  font-size: 40;
+  position: relative;
+  right: 5;
+  top: -5;
 }

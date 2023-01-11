@@ -10,6 +10,7 @@ const secondsTimer = document.querySelector('[data-seconds]');
 let chosenDate = {};
 
 const calendar = flatpickr('#datetime-picker', {
+  position: 'above left',
   enableTime: true,
   time_24hr: true,
   defaultDate: new Date(),
