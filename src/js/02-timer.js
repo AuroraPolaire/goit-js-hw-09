@@ -1,5 +1,6 @@
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
+import { Report } from 'notiflix/build/notiflix-report-aio';
 
 const startButton = document.querySelector('button[data-start]');
 const daysTimer = document.querySelector('[data-days]');
@@ -15,7 +16,7 @@ const calendar = flatpickr('#datetime-picker', {
   minuteIncrement: 1,
   onChange: function (selectedDates) {
     if (selectedDates[0].getTime() < Date.now()) {
-      alert('Please choose a date in the future');
+      Report.info('Please choose a date in the future', '', 'Close');
       startButton.setAttribute('disabled', true);
     } else if (selectedDates[0].getTime() >= Date.now()) {
       startButton.removeAttribute('disabled');
