@@ -1,0 +1,17 @@
+.button {
+  padding: 10px 25px;
+  background-color: blanchedalmond;
+  border: 1px solid rgb(190, 174, 151);
+  border-radius: 5px;
+  box-shadow: 5px 5px 2px 1px rgba(29, 29, 29, 0.2);
+  font-size: 25px;
+}
+
+.button:hover {
+  cursor: pointer;
+  background-color: rgb(190, 174, 151);
+}
+
+.button:not(:first-child) {
+  margin-left: 20px;
+}
