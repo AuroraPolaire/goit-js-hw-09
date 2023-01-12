@@ -1,6 +1,5 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 const inputForm = document.querySelector('form');
-let data = {};
 
 function onInputGetValue(event) {
   event.preventDefault();
@@ -8,7 +7,6 @@ function onInputGetValue(event) {
   let delay = formElements.delay.value * 1;
   const step = formElements.step.value * 1;
   const amount = formElements.amount.value * 1;
-  console.log(delay, step, amount);
 
   for (let i = 1; i <= amount; i += 1) {
     if (i > 1) {
