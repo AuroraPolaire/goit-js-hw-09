@@ -8,9 +8,9 @@ function getRandomHexColor() {
 }
 
 function onClickStartColorChange(e) {
+  startButton.setAttribute('disabled', true);
+  stopButton.removeAttribute('disabled');
   colorChangeIntId = setInterval(() => {
-    startButton.setAttribute('disabled', true);
-    stopButton.removeAttribute('disabled');
     body.style.backgroundColor = getRandomHexColor();
   }, 1000);
 }

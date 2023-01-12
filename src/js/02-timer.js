@@ -3,6 +3,7 @@ import 'flatpickr/dist/flatpickr.min.css';
 import { Report } from 'notiflix/build/notiflix-report-aio';
 
 const startButton = document.querySelector('button[data-start]');
+const input = document.querySelector('#datetime-picker');
 const daysTimer = document.querySelector('[data-days]');
 const hoursTimer = document.querySelector('[data-hours]');
 const minutesTimer = document.querySelector('[data-minutes]');
@@ -15,20 +16,20 @@ const calendar = flatpickr('#datetime-picker', {
   time_24hr: true,
   defaultDate: new Date(),
   minuteIncrement: 1,
-  onChange: function (selectedDates) {
+  onClose: function (selectedDates) {
+    chosenDate = selectedDates;
     if (selectedDates[0].getTime() < Date.now()) {
-      Report.info('Please choose a date in the future', '', 'Close');
       startButton.setAttribute('disabled', true);
+      Report.info('Please choose a date in the future', '', 'Close');
     } else if (selectedDates[0].getTime() >= Date.now()) {
       startButton.removeAttribute('disabled');
     }
   },
-  onClose: function (selectedDates) {
-    chosenDate = selectedDates;
-  },
 });
 
 function onClickRunTimer(e) {
+  startButton.setAttribute('disabled', true);
+  input.disabled = true;
   const intervalId = setInterval(() => {
     const difference = chosenDate[0] - Date.now();
 

@@ -4,9 +4,9 @@ const inputForm = document.querySelector('form');
 function onInputGetValue(event) {
   event.preventDefault();
   const formElements = event.currentTarget.elements;
-  let delay = formElements.delay.value * 1;
-  const step = formElements.step.value * 1;
-  const amount = formElements.amount.value * 1;
+  let delay = Number(formElements.delay.value);
+  const step = Number(formElements.step.value);
+  const amount = Number(formElements.amount.value);
 
   for (let i = 1; i <= amount; i += 1) {
     if (i > 1) {
